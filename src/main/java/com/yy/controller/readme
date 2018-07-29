@@ -1,5 +1,13 @@
 控制层
 SpringMVC控制层请求原理
 1.用户发送请求至前端控制器DispatcherServlet。
-2.DispatcherServlet收到请求调用HandlerMapping处理器映射器
-3.
+2.DispatcherServlet收到请求调用HandlerMapping处理器映射器。
+3.处理器映射器找到具体的处理器（根据xml文件或注解），生成处理器对象及处理器拦截器（有则生成），并返回给DispatcherServlet。
+4.DispatcherServlet调用HandlerAdapter处理器适配器。
+5.HandlerAdapter经过适配调用具体的Controller控制器。
+6.Controller执行完成后返回ModelAndView。
+7.HandlerAdapter将Controller执行结果ModelAndView返回给DispatcherServlet。
+8.DispatcherServlet将ModelAndView传给ViewReslover视图解析器。
+9.ViewReslover解析后返回具体的view。
+10.DispatcherServlet根据view进行视图渲染。
+11.DispatcherServlet响应用户。
