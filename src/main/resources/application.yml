@@ -1,4 +1,4 @@
-# �ؼ��ֶ�Сд��
+## 注意关键字都小写
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -7,3 +7,6 @@ spring:
     url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+
+server:
+  context-path: /sell

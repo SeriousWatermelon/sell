@@ -1,0 +1,5 @@
+控制层
+SpringMVC控制层请求原理
+1.用户发送请求至前端控制器DispatcherServlet。
+2.DispatcherServlet收到请求调用HandlerMapping处理器映射器
+3.
