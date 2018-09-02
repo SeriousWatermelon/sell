@@ -1,6 +1,6 @@
-package com.yy.CategoryService.impl;
+package com.yy.service.impl;
 
-import com.yy.CategoryService.CategoryService;
+import com.yy.service.CategoryService;
 import com.yy.dataobject.ProductCategory;
 import com.yy.repository.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

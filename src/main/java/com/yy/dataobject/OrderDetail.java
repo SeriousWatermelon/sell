@@ -41,7 +41,8 @@ public class OrderDetail {
     private String productName;
 
     /**
-     * 商品价格
+     * 商品单价——必须从数据库查询，不能从前台获取
+     * 即前台不能任意修改单价值
      */
     private BigDecimal productPrice;
 

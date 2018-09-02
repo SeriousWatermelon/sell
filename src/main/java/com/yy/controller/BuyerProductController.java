@@ -1,8 +1,7 @@
 package com.yy.controller;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.yy.CategoryService.CategoryService;
-import com.yy.CategoryService.ProductService;
+import com.yy.service.CategoryService;
+import com.yy.service.ProductService;
 import com.yy.VO.ProductInfoVO;
 import com.yy.VO.ProductVO;
 import com.yy.VO.ResultVO;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

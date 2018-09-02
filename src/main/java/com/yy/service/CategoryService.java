@@ -1,4 +1,4 @@
-package com.yy.CategoryService;
+package com.yy.service;
 
 import com.yy.dataobject.ProductCategory;
 
