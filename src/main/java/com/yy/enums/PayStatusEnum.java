@@ -1,7 +1,6 @@
 package com.yy.enums;
 
 import lombok.Getter;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 
 /**
  * Created by 稻草人 on 2018/8/19.

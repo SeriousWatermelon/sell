@@ -1,11 +1,8 @@
 package com.yy.dto;
 
 import com.yy.dataobject.OrderDetail;
-import com.yy.enums.OrderStatusEnum;
-import com.yy.enums.PayStatusEnum;
 import lombok.Data;
 
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
