@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.xml.transform.Result;
 import java.util.List;
 
 /**
@@ -46,10 +47,25 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
-
+        for(CartDTO cartDTO:cartDTOList){
+            ProductInfo productInfo=repository.findOne(cartDTO.getProductId());
+            if(productInfo==null){
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            //原有的+扣除的
+            Integer result=cartDTO.getProductQuantity()+productInfo.getProductStock();
+            productInfo.setProductStock(result);
+            repository.save(productInfo);
+        }
     }
 
+    /**
+     * 多线程操作时，同时查出库存足够，然后同时扣库存，可能发生超卖(卖的比库存多，无法发货)
+     * 暂时未处理，在后期将进行优化处理。
+     * @param cartDTOList
+     */
     @Override
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {

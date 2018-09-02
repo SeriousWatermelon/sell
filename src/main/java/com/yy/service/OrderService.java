@@ -25,7 +25,7 @@ public interface OrderService {
      * @param orderId   订单id
      * @return
      */
-    OrderDTO fondOne(String orderId);
+    OrderDTO findOne(String orderId);
 
 
     /**

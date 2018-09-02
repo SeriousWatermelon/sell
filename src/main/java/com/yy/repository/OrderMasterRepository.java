@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 订单主表dao层
  * Created by 稻草人 on 2018/8/19.
  */
-public interface OrderMasterRepository extends JpaRepository<OrderMaster,Integer>{
+public interface OrderMasterRepository extends JpaRepository<OrderMaster,String>{
 
     /**
      * 根据用户openid查询订单

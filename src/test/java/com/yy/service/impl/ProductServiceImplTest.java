@@ -1,4 +1,4 @@
-package com.yy.CategoryService.impl;
+package com.yy.service.impl;
 
 import com.yy.dataobject.ProductInfo;
 import com.yy.enums.ProductStatusEnum;
@@ -13,8 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by 稻草人 on 2018/7/29.

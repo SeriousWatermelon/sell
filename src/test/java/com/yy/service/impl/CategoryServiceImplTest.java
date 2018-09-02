@@ -1,4 +1,4 @@
-package com.yy.CategoryService.impl;
+package com.yy.service.impl;
 
 import com.yy.dataobject.ProductCategory;
 import org.junit.Assert;
