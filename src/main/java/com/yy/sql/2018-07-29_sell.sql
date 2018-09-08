@@ -1,73 +1,76 @@
 # 微信点餐数据库
 
+CREATE DATABASE sell;
+
+USE sell;
 
 -- sql
 
 -- 类目
-create table `product_category` (
-    `category_id` int not null auto_increment,
-    `category_name` varchar(64) not null comment '类目名字',
-    `category_type` int not null comment '类目编号',
-    `create_time` timestamp not null default current_timestamp comment '创建时间',
-    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`category_id`)
+CREATE TABLE `product_category` (
+    `category_id` INT NOT NULL AUTO_INCREMENT,
+    `category_name` VARCHAR(64) NOT NULL COMMENT '类目名字',
+    `category_type` INT NOT NULL COMMENT '类目编号',
+    `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`category_id`)
 );
 
 -- 商品
-create table `product_info` (
-    `product_id` varchar(32) not null,
-    `product_name` varchar(64) not null comment '商品名称',
-    `product_price` decimal(8,2) not null comment '单价',
-    `product_stock` int not null comment '库存',
-    `product_description` varchar(64) comment '描述',
-    `product_icon` varchar(512) comment '小图',
-    `product_status` tinyint(3) DEFAULT '0' COMMENT '商品状态,0正常1下架',
-    `category_type` int not null comment '类目编号',
-    `create_time` timestamp not null default current_timestamp comment '创建时间',
-    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`product_id`)
+CREATE TABLE `product_info` (
+    `product_id` VARCHAR(32) NOT NULL,
+    `product_name` VARCHAR(64) NOT NULL COMMENT '商品名称',
+    `product_price` DECIMAL(8,2) NOT NULL COMMENT '单价',
+    `product_stock` INT NOT NULL COMMENT '库存',
+    `product_description` VARCHAR(64) COMMENT '描述',
+    `product_icon` VARCHAR(512) COMMENT '小图',
+    `product_status` TINYINT(3) DEFAULT '0' COMMENT '商品状态,0正常1下架',
+    `category_type` INT NOT NULL COMMENT '类目编号',
+    `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`product_id`)
 );
 
 -- 订单
-create table `order_master` (
-    `order_id` varchar(32) not null,
-    `buyer_name` varchar(32) not null comment '买家名字',
-    `buyer_phone` varchar(32) not null comment '买家电话',
-    `buyer_address` varchar(128) not null comment '买家地址',
-    `buyer_openid` varchar(64) not null comment '买家微信openid',
-    `order_amount` decimal(8,2) not null comment '订单总金额',
-    `order_status` tinyint(3) not null default '0' comment '订单状态, 默认为新下单',
-    `pay_status` tinyint(3) not null default '0' comment '支付状态, 默认未支付',
-    `create_time` timestamp not null default current_timestamp comment '创建时间',
-    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`order_id`),
-    key `idx_buyer_openid` (`buyer_openid`)
+CREATE TABLE `order_master` (
+    `order_id` VARCHAR(32) NOT NULL,
+    `buyer_name` VARCHAR(32) NOT NULL COMMENT '买家名字',
+    `buyer_phone` VARCHAR(32) NOT NULL COMMENT '买家电话',
+    `buyer_address` VARCHAR(128) NOT NULL COMMENT '买家地址',
+    `buyer_openid` VARCHAR(64) NOT NULL COMMENT '买家微信openid',
+    `order_amount` DECIMAL(8,2) NOT NULL COMMENT '订单总金额',
+    `order_status` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '订单状态, 默认为新下单',
+    `pay_status` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '支付状态, 默认未支付',
+    `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`order_id`),
+    KEY `idx_buyer_openid` (`buyer_openid`)
 );
 
 -- 订单商品
-create table `order_detail` (
-    `detail_id` varchar(32) not null,
-    `order_id` varchar(32) not null,
-    `product_id` varchar(32) not null,
-    `product_name` varchar(64) not null comment '商品名称',
-    `product_price` decimal(8,2) not null comment '当前价格,单位分',
-    `product_quantity` int not null comment '数量',
-    `product_icon` varchar(512) comment '小图',
-    `create_time` timestamp not null default current_timestamp comment '创建时间',
-    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`detail_id`),
-    key `idx_order_id` (`order_id`)
+CREATE TABLE `order_detail` (
+    `detail_id` VARCHAR(32) NOT NULL,
+    `order_id` VARCHAR(32) NOT NULL,
+    `product_id` VARCHAR(32) NOT NULL,
+    `product_name` VARCHAR(64) NOT NULL COMMENT '商品名称',
+    `product_price` DECIMAL(8,2) NOT NULL COMMENT '当前价格,单位分',
+    `product_quantity` INT NOT NULL COMMENT '数量',
+    `product_icon` VARCHAR(512) COMMENT '小图',
+    `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`detail_id`),
+    KEY `idx_order_id` (`order_id`)
 );
 
 -- 卖家(登录后台使用, 卖家登录之后可能直接采用微信扫码登录，不使用账号密码)
-create table `seller_info` (
-    `id` varchar(32) not null,
-    `username` varchar(32) not null,
-    `password` varchar(32) not null,
-    `openid` varchar(64) not null comment '微信openid',
-    `create_time` timestamp not null default current_timestamp comment '创建时间',
-    `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`id`)
-) comment '卖家信息表';
+CREATE TABLE `seller_info` (
+    `id` VARCHAR(32) NOT NULL,
+    `username` VARCHAR(32) NOT NULL,
+    `password` VARCHAR(32) NOT NULL,
+    `openid` VARCHAR(64) NOT NULL COMMENT '微信openid',
+    `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`id`)
+) COMMENT '卖家信息表';
 
 
