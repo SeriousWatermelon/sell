@@ -79,6 +79,7 @@ public class OrderServiceImpl implements OrderService {
             cartDTOList.add(cartDTO);*/
         }
         //3.写入订单数据库（OrderMaster）
+        orderDTO.setOrderId(orderId);
         OrderMaster orderMaster=new OrderMaster();
         BeanUtils.copyProperties(orderDTO,orderMaster);
         //先拷贝属性，在设置值，否则会被orderDTO中的null值替换掉；另外，拷贝时会把orderMaster的状态置空。
@@ -135,7 +136,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderDTO cancle(OrderDTO orderDTO) {
+    public OrderDTO cancel(OrderDTO orderDTO) {
         OrderMaster orderMaster=new OrderMaster();
         //BeanUtils.copyProperties(orderDTO,orderMaster);
 

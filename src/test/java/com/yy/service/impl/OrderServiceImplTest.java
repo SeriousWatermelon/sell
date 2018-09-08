@@ -85,7 +85,7 @@ public class OrderServiceImplTest {
     @Test
     public void cancle() throws Exception {
         OrderDTO orderDTO=orderService.findOne(ORDER_ID);
-        OrderDTO result=orderService.cancle(orderDTO);
+        OrderDTO result=orderService.cancel(orderDTO);
         log.info("【取消订单】result={}",result);
         Assert.assertEquals(OrderStatusEnum.CANCLE.getCode(),result.getOrderStatus());
     }

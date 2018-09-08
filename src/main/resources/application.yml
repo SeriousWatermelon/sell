@@ -8,5 +8,10 @@ spring:
   jpa:
     show-sql: true
 
+  ## 当返回的json字符串中有字段为null时，不将该字段序列化返回，即不显示到json字符串中。
+  jackson:
+    default-property-inclusion: non_null
+
 server:
   context-path: /sell
+

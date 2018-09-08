@@ -40,7 +40,7 @@ public interface OrderService {
     /**
      * 取消订单-修改订单状态
      */
-    OrderDTO cancle(OrderDTO orderDTO);
+    OrderDTO cancel(OrderDTO orderDTO);
 
 
     /**
