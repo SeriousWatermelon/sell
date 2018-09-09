@@ -21,6 +21,7 @@ public enum ResultEnum {
     ORDER_PAY_ERROR(92,"订单支付状态错误"),
     CART_EMPTY(91,"购物车不能为空"),
     ORDER_OWNER_ERROR(90,"该订单不属于当前用户"),
+    WECHAT_MP_ERROR(89,"微信公众账号方面的错误"),
 
     ;
 
