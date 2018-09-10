@@ -11,3 +11,6 @@ SpringMVC控制层请求原理
 9.ViewReslover解析后返回具体的view。
 10.DispatcherServlet根据view进行视图渲染。
 11.DispatcherServlet响应用户。
+
+@Controller：返回一个页面
+@RequestController：返回json字符串

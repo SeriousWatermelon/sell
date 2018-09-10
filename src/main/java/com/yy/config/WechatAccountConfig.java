@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import javax.net.ssl.SSLContext;
+
 /**
  * Created by 稻草人 on 2018/9/9.
  *
@@ -19,8 +21,35 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "wechat")
 public class WechatAccountConfig {
 
+    /**
+     * appID
+     */
     private String mpAppId;
 
+    /**
+     * appSecret
+     */
     private String mpAppSecret;
+
+    /**
+     * 商户号
+     */
+    private String mchId;
+
+    /**
+     * 商户密钥
+     */
+    private String mchKey;
+
+    /**
+     * 商户证书路径，需要有访问权限
+     */
+    private String keyPath;
+
+    /**
+     * 微信支付异步通知地址
+     */
+    private String notifyUrl;
+
 
 }

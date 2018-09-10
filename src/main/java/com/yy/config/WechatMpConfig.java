@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by 稻草人 on 2018/9/9.
- * 微信公众账号配置文件
+ * 微信公众账号配置文件；
+ * 将公众账号的配置信息生成bean
  */
 @Component
 public class WechatMpConfig {
