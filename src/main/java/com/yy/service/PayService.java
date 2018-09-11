@@ -1,5 +1,6 @@
 package com.yy.service;
 
+import com.lly835.bestpay.model.PayResponse;
 import com.yy.dto.OrderDTO;
 
 /**
@@ -11,7 +12,7 @@ public interface PayService {
      *
      * @param orderDTO
      */
-    void create(OrderDTO orderDTO);
+    PayResponse create(OrderDTO orderDTO);
 
 
 }
