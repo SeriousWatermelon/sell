@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Created by 稻草人 on 2018/9/10.
- * JSON格式化工具
+ * JSON格式化工具；
+ * 将对象转换成json字符串
  */
 public class JsonUtil {
 

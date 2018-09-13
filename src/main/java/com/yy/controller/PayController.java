@@ -8,9 +8,7 @@ import com.yy.service.OrderService;
 import com.yy.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
@@ -55,6 +53,20 @@ public class PayController {
         map.put("returnUrl",returnUrl);
 
         return new ModelAndView("pay/create",map);
+    }
+
+
+    /**
+     *  微信异步通知；当支付成功后进行异步通知。
+     * @param notifyData 将json格式的数据转为java对象。
+     */
+    @GetMapping("/notify")
+    public ModelAndView notify(@RequestBody String notifyData){
+
+        payService.notify(notifyData);
+        //将处理结果返回给微信端
+        return new ModelAndView("pay/success");
+
     }
 
 

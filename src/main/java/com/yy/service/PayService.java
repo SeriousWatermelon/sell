@@ -9,10 +9,16 @@ import com.yy.dto.OrderDTO;
 public interface PayService {
 
     /**
-     *
+     *  创建订单发起支付
      * @param orderDTO
      */
     PayResponse create(OrderDTO orderDTO);
+
+    /**
+     * 支付结果异步通知
+     * @param notifyData 异步通知支付结果
+     */
+    PayResponse notify(String notifyData);
 
 
 }
