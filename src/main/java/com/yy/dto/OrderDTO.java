@@ -1,10 +1,15 @@
 package com.yy.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.yy.dataobject.OrderDetail;
+import com.yy.enums.OrderStatusEnum;
+import com.yy.enums.PayStatusEnum;
+import com.yy.utils.EnumUtil;
 import com.yy.utils.serializer.Date2LongSerializer;
 import lombok.Data;
+import org.apache.commons.lang3.EnumUtils;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -81,4 +86,16 @@ public class OrderDTO {
      * 订单详情集合
      */
     List<OrderDetail> orderDetailList;
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum(){
+        return EnumUtil.getByCode(orderStatus,OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum(){
+        return EnumUtil.getByCode(payStatus,PayStatusEnum.class);
+    }
+
+
 }

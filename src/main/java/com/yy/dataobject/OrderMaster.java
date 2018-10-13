@@ -2,6 +2,7 @@ package com.yy.dataobject;
 
 import com.yy.enums.OrderStatusEnum;
 import com.yy.enums.PayStatusEnum;
+
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
