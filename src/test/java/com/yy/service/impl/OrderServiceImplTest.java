@@ -39,9 +39,9 @@ public class OrderServiceImplTest {
     public void create() throws Exception {
         OrderDTO orderDTO=new OrderDTO();
         //买家信息
-        orderDTO.setBuyerName("雀儿");
-        orderDTO.setBuyerAddress("澧水");
-        orderDTO.setBuyerPhone("15574223387");
+        orderDTO.setBuyerName("莹");
+        orderDTO.setBuyerAddress("常德");
+        orderDTO.setBuyerPhone("26685334498");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
 
         //买家订单详情信息
@@ -52,11 +52,11 @@ public class OrderServiceImplTest {
         orderDetailList.add(orderDetail1);
         OrderDetail orderDetail2=new OrderDetail();
         orderDetail2.setProductId("123457");
-        orderDetail2.setProductQuantity(4);
+        orderDetail2.setProductQuantity(3);
         orderDetailList.add(orderDetail2);
         OrderDetail orderDetail3=new OrderDetail();
         orderDetail3.setProductId("123458");
-        orderDetail3.setProductQuantity(5);
+        orderDetail3.setProductQuantity(1);
         orderDetailList.add(orderDetail3);
 
         orderDTO.setOrderDetailList(orderDetailList);
