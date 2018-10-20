@@ -31,7 +31,7 @@
                         <tr>
                             <td>${productInfo.productId}</td>
                             <td>${productInfo.productName}</td>
-                            <td><img src="${productInfo.productIcon}" width="50px" height="50px" /> </td>
+                            <td><img src="${productInfo.productIcon ! 'http://thyrsi.com/t6/391/1540029136x-1404755462.png'}" width="50px" height="50px" /> </td>
                             <td>${productInfo.productPrice}</td>
                             <td>${productInfo.productStock}</td>
                             <td>${productInfo.productDescription}</td>

@@ -14,7 +14,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4>
                     操作失败!
-                </h4> <strong>${msg}</strong><a id="tips" href="${url}" class="alert-link">3s后自动跳转</a>
+                </h4> <strong>${msg!""}</strong><a id="tips" href="${url}" class="alert-link">3s后自动跳转</a>
             </div>
         </div>
     </div>
