@@ -87,7 +87,7 @@ public class SellerOrderController {
             return new ModelAndView("common/error",map);
         }
         map.put("orderDTO",orderDTO);
-        return new ModelAndView("common/detail",map);
+        return new ModelAndView("order/detail",map);
     }
 
 

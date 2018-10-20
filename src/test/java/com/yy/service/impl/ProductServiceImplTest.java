@@ -46,17 +46,34 @@ public class ProductServiceImplTest {
     @Test
     public void save() throws Exception {
         ProductInfo productInfo=new ProductInfo();
-        productInfo.setProductId("123457");
-        productInfo.setProductName("小米粥");
-        productInfo.setProductPrice(new BigDecimal(2.5)); //单价
-        productInfo.setProductStock(100);//库存量
-        productInfo.setProductDescription("很好喝de小米粥");
-        productInfo.setProductIcon("htp://***.png");
+        productInfo.setProductId("123453");
+        productInfo.setProductName("黑芝麻糊");
+        productInfo.setProductPrice(new BigDecimal(4.5)); //单价
+        productInfo.setProductStock(200);//库存量
+        productInfo.setProductDescription("南方黑芝麻糊");
+        productInfo.setProductIcon("http://thyrsi.com/t6/391/1540012393x-1404817712.jpg");
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
-        productInfo.setCategoryType(3);
+        productInfo.setCategoryType(4);
 
         ProductInfo result=productService.save(productInfo);
         Assert.assertNotNull(result);
     }
+
+
+    @Test
+    public void onSale(){
+        String productId="123453";
+        productService.onSale(productId);
+    }
+
+    @Test
+    public void offSale(){
+        String productId="123453";
+        productService.offSale(productId);
+    }
+
+
+
+
 
 }

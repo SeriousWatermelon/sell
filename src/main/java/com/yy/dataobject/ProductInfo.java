@@ -1,6 +1,8 @@
 package com.yy.dataobject;
 
 import com.yy.enums.ProductStatusEnum;
+import com.yy.utils.EnumUtil;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -47,6 +49,11 @@ public class ProductInfo {
     private Date createTime;
 
     private Date updateTime;
+
+    @Ignore
+    public ProductStatusEnum getProductStatusEnum(){
+        return EnumUtil.getByCode(productStatus,ProductStatusEnum.class);
+    }
 
 }
 
