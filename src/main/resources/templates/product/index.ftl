@@ -31,8 +31,8 @@
                         </div>
                         <div class="form-group">
                             <label>图片</label>
-                            <input type="file" id="exampleInputFile" />
                             <img src="${(productInfo.productIcon)!'http://thyrsi.com/t6/391/1540029136x-1404755462.png'}" width="100" height="100">
+                            <input name="productIcon" type="text" class="form-control" value="${(productInfo.productIcon)!''}" />
                         </div>
                         <div class="form-group">
                             <label>类目</label>

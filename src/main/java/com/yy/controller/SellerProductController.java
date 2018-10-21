@@ -9,6 +9,7 @@ import com.yy.exception.SellException;
 import com.yy.form.ProductForm;
 import com.yy.service.CategoryService;
 import com.yy.service.ProductService;
+import com.yy.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -66,19 +67,33 @@ public class SellerProductController {
     @GetMapping("/on_sale")
     public ModelAndView onSale(@RequestParam(value="productId") String productId,
                                Map<String,Object> map){
-        productService.onSale(productId);
-        map.put("msg","商品上架操作成功");
-        map.put("url","/sell/seller/product/list");
-        return new ModelAndView("common/success",map);
+        try{
+            productService.onSale(productId);
+            map.put("msg","商品上架操作成功");
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/success",map);
+        }catch (SellException e){
+            map.put("msg",e.getMessage());
+            map.put("url","sell/seller/product/list");
+            return new ModelAndView("common/error",map);
+        }
+
     }
 
     @GetMapping("/off_sale")
     public ModelAndView offSale(@RequestParam(value="productId") String productId,
                                Map<String,Object> map){
-        productService.offSale(productId);
-        map.put("msg","商品下架操作成功");
-        map.put("url","/sell/seller/product/list");
-        return new ModelAndView("common/success",map);
+        try{
+            productService.offSale(productId);
+            map.put("msg","商品下架操作成功");
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/success",map);
+        }catch(SellException e){
+            map.put("msg",e.getMessage());
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/error",map);
+        }
+
     }
 
     /**
@@ -118,8 +133,13 @@ public class SellerProductController {
         }
 
         ProductInfo productInfo = new ProductInfo();
-        BeanUtils.copyProperties(productForm,productInfo);
         try{
+            if(!StringUtils.isEmpty(productForm.getProductId())){//产品id不为空，即修改操作
+                productInfo = productService.findOne(productForm.getProductId());
+            }else{//新增商品手动设置id
+                productForm.setProductId(KeyUtil.getUniqueKey());
+            }
+            BeanUtils.copyProperties(productForm,productInfo);
             productService.save(productInfo);
         }catch(SellException e){
             map.put("msg",e.getMessage());
@@ -128,6 +148,7 @@ public class SellerProductController {
         }
 
         map.put("url","/sell/seller/product/list");
+        map.put("msg","操作成功");
         return new ModelAndView("common/success",map);
     }
 
