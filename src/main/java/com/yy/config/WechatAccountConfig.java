@@ -22,12 +22,12 @@ import javax.net.ssl.SSLContext;
 public class WechatAccountConfig {
 
     /**
-     * appID
+     * 公众平台appID
      */
     private String mpAppId;
 
     /**
-     * appSecret
+     * 公众平台密钥appSecret
      */
     private String mpAppSecret;
 
@@ -51,5 +51,14 @@ public class WechatAccountConfig {
      */
     private String notifyUrl;
 
+    /**
+     * 开放平台 网站应用appId
+     */
+    private String openAppId;
+
+    /**
+     * 开放平台 网站应用密钥
+     */
+    private String openAppSecret;
 
 }

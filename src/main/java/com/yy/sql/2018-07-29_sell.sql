@@ -64,7 +64,7 @@ CREATE TABLE `order_detail` (
 
 -- 卖家(登录后台使用, 卖家登录之后可能直接采用微信扫码登录，不使用账号密码)
 CREATE TABLE `seller_info` (
-    `id` VARCHAR(32) NOT NULL,
+    `seller_id` VARCHAR(32) NOT NULL,
     `username` VARCHAR(32) NOT NULL,
     `password` VARCHAR(32) NOT NULL,
     `openid` VARCHAR(64) NOT NULL COMMENT '微信openid',
