@@ -89,9 +89,7 @@ public class WechatController {
                 url,
                 WxConsts.QrConnectScope.SNSAPI_LOGIN,
                 URLEncoder.encode(returnUrl));
-
         log.info("【微信开放平台授权】获取code,redirectUrl={}",redirectUrl);
-
         return "redirect:"+redirectUrl;
     }
 
@@ -105,7 +103,7 @@ public class WechatController {
            log.error("【微信开放平台授权】{}",e);
            throw new SellException(ResultEnum.WECHAT_MP_ERROR);
         }
-        log.info("【微信开放平台授权】{}",wxMpOAuth2AccessToken);
+        log.info("【微信开放平台授权】wxMpOAuth2AccessToken={}",wxMpOAuth2AccessToken);
         String openId = wxMpOAuth2AccessToken.getOpenId();
         return "redirect:" +returnUrl+"?openid="+openId;
     }

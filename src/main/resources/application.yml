@@ -12,6 +12,11 @@ spring:
   jackson:
     default-property-inclusion: non_null
 
+  redis:
+    host: 101.92.112.175
+    port: 6379
+  #  password:
+
 server:
   context-path: /sell
   port: 80
@@ -28,8 +33,9 @@ wechat:
   openAppId: wx6ad144e54af67d87
   openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
 
-projectUrl：
+projectUrl:
   wechatMpAuthorize: http://syy.com
-  wxOpenAuthorize: http://syy.com
-  sell:
+  wechatOpenAuthorize: http://syy.com
+  # sell: http://syy.com
+  sell: http://127.0.0.1
 
