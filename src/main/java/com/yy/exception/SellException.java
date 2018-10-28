@@ -1,11 +1,13 @@
 package com.yy.exception;
 
 import com.yy.enums.ResultEnum;
+import lombok.Getter;
 
 /**
  * Created by 稻草人 on 2018/9/2.
  * 异常类
  */
+@Getter
 public class SellException extends RuntimeException {
 
     private Integer code;

@@ -11,7 +11,6 @@ import lombok.Getter;
 public enum ResultEnum {
     SUCCESS(0,"成功"),
     PARAM_ERROR(1,"参数不正确"),
-
     PRODUCT_NOT_EXIST(99,"商品不存在"),
     PRODUCT_STOCK_ERROR(98,"库存不足"),
     ORDER_NOT_EXIST(97,"订单不存在"),
