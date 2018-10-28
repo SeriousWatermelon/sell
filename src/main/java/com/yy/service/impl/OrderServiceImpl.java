@@ -15,6 +15,7 @@ import com.yy.repository.OrderMasterRepository;
 import com.yy.service.OrderService;
 import com.yy.service.PayService;
 import com.yy.service.ProductService;
+import com.yy.service.PushMessageService;
 import com.yy.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -49,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private PushMessageService pushMessageService;
 
     @Override
     @Transactional
@@ -194,6 +198,9 @@ public class OrderServiceImpl implements OrderService {
         if(resultUpdate==null){
             log.error("【完结订单】更新失败,orderMaster={}",orderMaster);
         }
+
+        //4.推送订单模板消息
+        pushMessageService.orderStatus(orderDTO);
 
         return orderDTO;
     }

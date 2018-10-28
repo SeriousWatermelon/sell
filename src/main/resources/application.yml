@@ -28,6 +28,8 @@ wechat:
   mchKey: c976503d34ca432c601361f969fd8d85
   keyPath: /var/weixin_cert/h5.p12  # 商户证书路径，需要具有访问权限。用于微信退款
   notifyUrl: http://sell.com/sell/pay/notify
+  templateId:
+    orderStatus: e-Cqq67QxD6YNI4liRiqawEYdfavW_7pc7LyEMb-yeQ
 
 # 微信登录身份验证（网页应用）
   openAppId: wx6ad144e54af67d87

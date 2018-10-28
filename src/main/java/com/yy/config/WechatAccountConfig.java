@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.net.ssl.SSLContext;
+import java.util.Map;
 
 /**
  * Created by 稻草人 on 2018/9/9.
@@ -60,5 +61,11 @@ public class WechatAccountConfig {
      * 开放平台 网站应用密钥
      */
     private String openAppSecret;
+
+    /**
+     * 微信公众平台
+     * 消息模板id
+     */
+    private Map<String,String> templateId;
 
 }
