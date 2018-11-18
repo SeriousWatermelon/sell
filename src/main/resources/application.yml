@@ -1,43 +1,4 @@
 ## 注意关键字都小写
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: zxcvbnm123
-    url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
-  jpa:
-    show-sql: true
-
-  ## 当返回的json字符串中有字段为null时，不将该字段序列化返回，即不显示到json字符串中。
-  jackson:
-    default-property-inclusion: non_null
-
-  redis:
-    host: 101.92.112.175
-    port: 6379
-  #  password:
-
-server:
-  context-path: /sell
-  port: 80
-
-wechat:
-  mpAppId: wxd898fcb01713c658
-  mpAppSecret: 29d8a650db31472aa87800e3b0d739f2
-  mchId: 1409146020
-  mchKey: c976503d34ca432c601361f969fd8d85
-  keyPath: /var/weixin_cert/h5.p12  # 商户证书路径，需要具有访问权限。用于微信退款
-  notifyUrl: http://sell.com/sell/pay/notify
-  templateId:
-    orderStatus: e-Cqq97QxD6YNI4liRiqawEYdFavW_7pc7LyEMb-yeQ
-
-# 微信登录身份验证（网页应用）
-  openAppId: wx6ad144e54af67d87
-  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
-
-projectUrl:
-  wechatMpAuthorize: http://syy.com
-  wechatOpenAuthorize: http://syy.com
-  # sell: http://syy.com
-  sell: http://127.0.0.1
-
+  profiles:
+    active: dev
