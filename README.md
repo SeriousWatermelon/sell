@@ -13,6 +13,6 @@ springboot微信点餐
 # 启动
   在linux系统中，将打包好的jar包放到linux的目录下，在该目录中，运行命令：
     java  -jar  packageName.jar
-  # 修改端口(-D后面的命令格式，是application.yml中配置的，可以在启动时直接使用命令行控制)
+  ### 修改端口(-D后面的命令格式，是application.yml中配置的，可以在启动时直接使用命令行控制)
     java  -jar  -Dserver.port=8090 packageName.jar
 
